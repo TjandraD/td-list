@@ -3,6 +3,8 @@ import 'package:td_list/pages/add_page.dart';
 import '../constants.dart';
 
 class HomePage extends StatefulWidget {
+  static String id = 'home_page';
+
   @override
   _HomePageState createState() => _HomePageState();
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class AddPage extends StatefulWidget {
+  static String id = 'add_page';
+
   @override
   _AddPageState createState() => _AddPageState();
 }
