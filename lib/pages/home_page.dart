@@ -7,6 +7,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> listviewItems = [
+    'Working on personal project',
+    'Cleaning the house',
+    'Meditate'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +20,34 @@ class _HomePageState extends State<HomePage> {
         title: Text('To-Do List'),
         backgroundColor: appBarColor,
       ),
-      body: Container(),
+      body: ListView.builder(
+        itemCount: listviewItems.length,
+        itemBuilder: (context, index) {
+          String item = listviewItems[index];
+
+          return Dismissible(
+            key: Key(item),
+            child: ListTile(
+              title: Text(item),
+            ),
+            background: ListTile(
+              leading: Icon(
+                Icons.delete,
+                color: Colors.black54,
+              ),
+              tileColor: Colors.red,
+            ),
+            onDismissed: (direction) {
+              setState(() {
+                listviewItems.removeAt(index);
+              });
+
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text("$item dismissed")));
+            },
+          );
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: buttonColor,
         child: Icon(Icons.add),
