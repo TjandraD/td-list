@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:td_list/pages/add_page.dart';
 import '../constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -51,7 +52,12 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: buttonColor,
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddPage()),
+          );
+        },
       ),
     );
   }
