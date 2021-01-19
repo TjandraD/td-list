@@ -1,3 +1,4 @@
 import 'package:flutter/material.dart';
 
-Color appBarColor = Color(0xFF6c7a89);
+Color appBarColor = Colors.grey[700];
+Color buttonColor = Colors.grey[600];

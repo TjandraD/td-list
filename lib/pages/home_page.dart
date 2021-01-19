@@ -15,6 +15,11 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: appBarColor,
       ),
       body: Container(),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: buttonColor,
+        child: Icon(Icons.add),
+        onPressed: () {},
+      ),
     );
   }
 }
