@@ -33,8 +33,8 @@ class DbHelper {
     return await db.insert('todo', {'title': title});
   }
 
-  Future<int> deleteData(String title) async {
+  void deleteData(String title) async {
     final db = await database;
-    return await db.delete('todo', where: 'title = ?', whereArgs: [title]);
+    await db.delete('todo', where: 'title = ?', whereArgs: [title]);
   }
 }
