@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:td_list/services/db_helper.dart';
 import '../constants.dart';
+import 'home_page.dart';
 
 class AddPage extends StatefulWidget {
-  static String id = 'add_page';
-
   @override
   _AddPageState createState() => _AddPageState();
 }
 
 class _AddPageState extends State<AddPage> {
+  DbHelper dbHelper = DbHelper();
   bool isLoading = false;
   String item = '';
 
@@ -54,6 +55,12 @@ class _AddPageState extends State<AddPage> {
                   setState(() {
                     isLoading = !isLoading;
                   });
+                  dbHelper.insertData(item);
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                    (Route<dynamic> route) => false,
+                  );
                 }
               },
               child: isLoading
